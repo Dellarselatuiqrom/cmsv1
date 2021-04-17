@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ArticleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +14,11 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
+use App\Http\Controllers\ArticleController;
+
+Route::resource('articles', ArticleController::class);
+
+//Route::get('/', [HomeController::class, 'index']);
 //Practicum 1 :
 //number 1.
 //Route::get('/contact', function () {return view('contact'); })->name('contact');
@@ -41,12 +45,9 @@ use App\Http\Controllers\ArticleController;
 //Route::get('articles/{id}', [PageController::class, 'articles']);
 
 //number 3.
+//oute::get('/about', [AboutController::class, 'about']);
 
-Route::get('/', [HomeController::class, 'index']);
-
-Route::get('/about', [AboutController::class, 'about']);
-
-Route::get('articles/{id}', [ArticleController::class, 'articles']);
+//Route::get('articles/{id}', [ArticleController::class, 'articles']);
 
 //Practicum 3
 
@@ -70,10 +71,8 @@ Route::get('articles/{id}', [ArticleController::class, 'articles']);
 ///Route::get('/video', function () {return view('video'); })->name('video');
 //Route::get('/welcome', function () {return view('welcome'); })->name('welcome');
 
-Auth::routes();
+//Auth::routes();
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Auth::routes();
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
