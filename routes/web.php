@@ -17,6 +17,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 
 Route::resource('articles', ArticleController::class);
+Route::get('/article/print_pdf', [ArticleController::class,'print_pdf'])->name('print_pdf');
 
 //Route::get('/', [HomeController::class, 'index']);
 //Practicum 1 :

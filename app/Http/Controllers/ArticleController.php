@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use PDF;
+
 class ArticleController extends Controller
 {
     public function articles($id){
@@ -53,5 +55,10 @@ class ArticleController extends Controller
         $article = Article::find($id);
 
         return view('articles.edit', ['article' => $article]);
+    }
+    public function print_pdf(){
+        $articles = Article::all();
+        $pdf = PDF::loadview('articles.articles_pdf', ['articles'=>$articles]);
+        return $pdf->stream();
     }
 }
